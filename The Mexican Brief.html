@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mexico Brief | Mexico: Recommendations, News, and Life</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'csusb-blue': '#006CB3', // CSUSB-like Blue
+                        'csusb-dark': '#1e1e1e', // Dark Gray/Black
+                        'primary': '#003366', 
+                        'secondary': '#E04E39', // Adjusted Orange for contrast
+                        'bg-light': '#F2F2F2',
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'Helvetica', 'sans-serif'],
+                        serif: ['Georgia', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-overlay {
+            background: rgba(0, 51, 102, 0.85);
+        }
+        .skew-divider {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        .ad-placeholder {
+            border: 2px dashed #ccc;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 120px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- 1. TOP UTILITY BAR -->
+    <div class="bg-csusb-dark text-white text-xs py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end space-x-6">
+            <a href="#" class="hover:text-gray-300">Expats</a>
+            <a href="#" class="hover:text-gray-300">Digital Nomads</a>
+            <a href="#" class="hover:text-gray-300">Tourists</a>
+            <span class="text-gray-500">|</span>
+            <a href="#" class="hover:text-gray-300 font-bold">Donate</a>
+        </div>
+    </div>
+
+    <!-- 2. MAIN HEADER -->
+    <header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Area -->
+                <div class="flex items-center">
+                    <a href="#" class="flex flex-col group">
+                        <span class="text-2xl font-serif font-bold text-primary tracking-wide group-hover:opacity-80">THE MEXICO BRIEF</span>
+                        <span class="text-xs uppercase tracking-widest text-gray-500 group-hover:text-secondary">Mexico Life Guide</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#news" class="text-gray-800 hover:text-csusb-blue font-bold text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-csusb-blue pb-1 transition">News</a>
+                    <a href="#resources" class="text-gray-800 hover:text-csusb-blue font-bold text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-csusb-blue pb-1 transition">Resources</a>
+                    <a href="#lifestyle" class="text-gray-800 hover:text-csusb-blue font-bold text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-csusb-blue pb-1 transition">Lifestyle</a>
+                    
+                    <button class="text-gray-600 hover:text-csusb-blue">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-primary focus:outline-none">
+                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-50 border-t border-gray-200">
+            <div class="px-4 py-2 space-y-1">
+                <a href="#news" class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200">News</a>
+                <a href="#resources" class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200">Resources</a>
+                <a href="#lifestyle" class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200">Lifestyle</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION -->
+    <div class="relative w-full bg-gray-900 h-[500px] overflow-hidden group">
+        <img src="https://placehold.co/1920x800/003366/ffffff?text=Mexico+City+Skyline" alt="Mexico City View" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-1000">
+        
+        <div class="absolute bottom-0 left-0 w-full md:w-1/2 lg:w-1/3 bg-primary bg-opacity-90 text-white p-8 md:p-12 skew-divider">
+            <h1 class="text-3xl md:text-4xl font-bold font-serif mb-4 leading-tight">
+                Defining Your Journey in Mexico
+            </h1>
+            <p class="text-lg mb-6 text-gray-200">
+                Essential resources for the modern digital nomad. Navigate visas, find community, and live locally.
+            </p>
+            <a href="#resources" class="inline-block bg-secondary text-white font-bold py-3 px-6 hover:bg-white hover:text-secondary transition duration-300 uppercase tracking-wider text-sm">
+                Explore The Guide
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow">
+        
+        <!-- ADS/DONATION Placeholder -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+            <div class="ad-placeholder rounded text-sm text-gray-500">
+                <span>Advertisement / Donation Banner Area</span>
+            </div>
+        </div>
+
+        <!-- 4. NEWS & ALERTS SECTION -->
+        <section id="news" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex justify-between items-end mb-8 border-b-2 border-gray-200 pb-2">
+                <h2 class="text-3xl font-serif font-bold text-gray-800">News & Alerts</h2>
+                <a href="#" class="text-csusb-blue font-bold hover:underline text-sm uppercase">View Archive &raquo;</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- News Item 1 -->
+                <article class="flex flex-col group cursor-pointer">
+                    <div class="overflow-hidden h-48 mb-4 relative">
+                        <img src="https://placehold.co/600x400/FF6600/ffffff?text=Visa+Update" alt="Visa Update" class="w-full h-full object-cover transition transform group-hover:scale-110 duration-500">
+                        <span class="absolute top-0 right-0 bg-secondary text-white text-xs font-bold px-2 py-1 m-2">IMPORTANT</span>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-xs font-bold text-gray-500 mb-1 uppercase tracking-wide">Immigration | Oct 12</p>
+                        <h3 class="text-xl font-bold text-primary leading-snug group-hover:text-csusb-blue transition">
+                            Urgent: Temporary Resident Visa Financial Changes
+                        </h3>
+                        <p class="mt-2 text-gray-600 text-sm line-clamp-3">
+                            New solvency requirements have been announced for 2025. Ensure your bank statements meet the new threshold before your appointment.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- News Item 2 -->
+                <article class="flex flex-col group cursor-pointer">
+                    <div class="overflow-hidden h-48 mb-4">
+                        <img src="https://placehold.co/600x400/003366/ffffff?text=Safety+Alert" alt="Safety" class="w-full h-full object-cover transition transform group-hover:scale-110 duration-500">
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-xs font-bold text-gray-500 mb-1 uppercase tracking-wide">Advisory | Oct 08</p>
+                        <h3 class="text-xl font-bold text-primary leading-snug group-hover:text-csusb-blue transition">
+                            Hurricane Season: Preparing Your Apartment
+                        </h3>
+                        <p class="mt-2 text-gray-600 text-sm line-clamp-3">
+                            For those on the coast, here is a checklist of essentials to have ready as the season peaks this month.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- News Item 3 (Text Only) -->
+                <article class="flex flex-col group cursor-pointer bg-gray-50 p-6 border-l-4 border-csusb-blue h-full justify-center">
+                    <div>
+                        <p class="text-xs font-bold text-gray-500 mb-1 uppercase tracking-wide">Community News</p>
+                        <h3 class="text-lg font-bold text-primary leading-snug group-hover:text-csusb-blue transition mb-2">
+                            Digital Nomad Meetup: Roma Norte
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            Join us this Friday at 7 PM for a networking event.
+                        </p>
+                        <a href="#" class="text-secondary font-bold text-sm mt-3 inline-block hover:underline">Event Details &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 5. RESOURCES SECTION (The 7 Requested Sections) -->
+        <section id="resources" class="bg-gray-100 py-16 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-serif font-bold text-primary">Nomad Resources</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Seven essential pillars for navigating life in Mexico.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- 1. Bureaucracy -->
+                    <a href="#" class="bg-white p-6 rounded shadow-sm hover:shadow-xl transition group border-t-4 border-csusb-blue flex flex-col items-start">
+                        <div class="text-3xl mb-4 bg-blue-50 p-3 rounded-full text-primary group-hover:bg-primary group-hover:text-white transition">📄</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-csusb-blue">Bureaucracy Guide</h3>
+                        <p class="text-sm text-gray-600">Visas, CURP, RFC, & Driver's Licenses explained simply.</p>
+                    </a>
+                    
+                     <!-- 2. Housing -->
+                    <a href="#" class="bg-white p-6 rounded shadow-sm hover:shadow-xl transition group border-t-4 border-secondary flex flex-col items-start">
+                        <div class="text-3xl mb-4 bg-orange-50 p-3 rounded-full text-secondary group-hover:bg-secondary group-hover:text-white transition">🏠</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-secondary">Housing & Renting</h3>
+                        <p class="text-sm text-gray-600">Aval vs. Póliza, scam alerts, and neighborhood guides.</p>
+                    </a>
+
+                    <!-- 3. Nomad Toolkit -->
+                     <a href="#" class="bg-white p-6 rounded shadow-sm hover:shadow-xl transition group border-t-4 border-gray-500 flex flex-col items-start">
+                        <div class="text-3xl mb-4 bg-gray-100 p-3 rounded-full text-gray-700 group-hover:bg-gray-700 group-hover:text-white transition">💻</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary">Nomad Toolkit</h3>
+                        <p class="text-sm text-gray-600">Best internet providers, co-working maps, & SIM cards.</p>
+                    </a>
+
+                     <!-- 4. Money -->
+                     <a href="#" class="bg-white p-6 rounded shadow-sm hover:shadow-xl transition group border-t-4 border-green-600 flex flex-col items-start">
+                        <div class="text-3xl mb-4 bg-green-50 p-3 rounded-full text-green-700 group-hover:bg-green-700 group-hover:text-white transition">💸</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-green-700">Money & Finances</h3>
+                        <p class="text-sm text-gray-600">Banking, transfer fees, tipping culture, and cash rules.</p>
+                    </a>
+
+                     <!-- 5. Health -->
+                     <a href="#" class="bg-white p-6 rounded shadow-sm hover:shadow-xl transition group border-t-4 border-red-500 flex flex-col items-start">
+                        <div class="text-3xl mb-4 bg-red-50 p-3 rounded-full text-red-600 group-hover:bg-red-600 group-hover:text-white transition">🏥</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-600">Health & Safety</h3>
+                        <p class="text-sm text-gray-600">Pharmacy guide, emergency numbers, and safety checks.</p>
+                    </a>
+
+                     <!-- 6. Culture -->
+                     <a href="#" class="bg-white p-6 rounded shadow-sm hover:shadow-xl transition group border-t-4 border-purple-500 flex flex-col items-start">
+                        <div class="text-3xl mb-4 bg-purple-50 p-3 rounded-full text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition">🗣️</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600">Culture & Etiquette</h3>
+                        <p class="text-sm text-gray-600">Slang dictionary, "Ahorita" explained, and social norms.</p>
+                    </a>
+
+                     <!-- 7. Food & Nightlife (Adjusted to single column) -->
+                     <a href="#" class="bg-white p-6 rounded shadow-sm hover:shadow-xl transition group border-t-4 border-yellow-500 flex flex-col items-start">
+                        <div class="text-3xl mb-4 bg-yellow-50 p-3 rounded-full text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition">🌮</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-yellow-600">Food & Nightlife</h3>
+                        <p class="text-sm text-gray-600">Street food safety, Mezcal tasting guides, and Pueblos Mágicos.</p>
+                    </a>
+
+                    <!-- 8. Biblical Pearls (New Card) -->
+                    <a href="#" class="bg-white p-6 rounded shadow-sm hover:shadow-xl transition group border-t-4 border-blue-400 flex flex-col items-start">
+                        <div class="text-3xl mb-4 bg-blue-50 p-3 rounded-full text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition">📖</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-500">Biblical Pearls</h3>
+                        <p class="text-sm text-gray-600">Weekly spiritual wisdom, reflections, and encouragement.</p>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. LIFESTYLE / FEATURED SECTION -->
+        <section id="lifestyle" class="bg-white py-16 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-serif font-bold text-primary mb-4">Living the Local Life</h2>
+                        <div class="w-16 h-1 bg-secondary mb-6"></div>
+                        <p class="text-gray-700 mb-6 text-lg leading-relaxed">
+                            Moving to Mexico isn't just about the weather. It's about integrating into a vibrant culture. Read our detailed stories on language etiquette, tipping culture, and how to make friends outside the expat bubble.
+                        </p>
+                        <a href="#" class="text-csusb-blue font-bold hover:text-primary uppercase tracking-wide border-b-2 border-csusb-blue hover:border-primary pb-1 transition">
+                            Read Lifestyle Articles &rarr;
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://placehold.co/300x300/333/fff?text=Food" class="rounded shadow-lg hover:shadow-xl transition">
+                        <img src="https://placehold.co/300x300/444/fff?text=Culture" class="rounded shadow-lg hover:shadow-xl transition mt-8">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. BIBLICAL PEARLS SECTION -->
+        <section id="biblical-pearls" class="bg-gray-50 py-16 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-serif font-bold text-primary">Biblical Pearls</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto italic">Weekly spiritual wisdom and reflections for the journey.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Featured Pearl (Main Article) -->
+                    <div class="lg:col-span-2 bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+                        <img src="https://placehold.co/800x400/003366/ffffff?text=This+Week's+Reading" alt="Biblical Reading" class="w-full h-64 object-cover">
+                        <div class="p-8">
+                            <span class="text-secondary font-bold text-xs uppercase tracking-wider mb-2 block">Weekly Feature</span>
+                            <h3 class="text-2xl font-serif font-bold text-gray-900 mb-4">Finding Peace in a New Land</h3>
+                            <p class="text-gray-700 mb-6 leading-relaxed">
+                                "By faith Abraham, when called to go to a place he would later receive as his inheritance, obeyed and went, even though he did not know where he was going." (Hebrews 11:8). Moving to a new country brings uncertainty, but it also invites us to trust deeply. This week, we explore the spiritual discipline of embracing the unknown...
+                            </p>
+                            <a href="#" class="inline-block bg-primary text-white font-bold py-2 px-6 rounded hover:bg-csusb-blue transition text-sm uppercase tracking-wide">
+                                Read Full Article
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Previous Pearls (Sidebar List) -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border border-gray-100">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 border-b-2 border-secondary pb-2 inline-block">Previous Wisdom</h3>
+                        <ul class="space-y-6">
+                            <li class="group">
+                                <a href="#" class="block">
+                                    <span class="text-xs text-gray-500 block mb-1">Last Week</span>
+                                    <h4 class="font-bold text-primary group-hover:text-csusb-blue transition">The Stranger at the Gate</h4>
+                                    <p class="text-sm text-gray-600 mt-1 line-clamp-2">Reflections on hospitality and how we treat those we meet in our daily travels.</p>
+                                </a>
+                            </li>
+                            <li class="group">
+                                <a href="#" class="block">
+                                    <span class="text-xs text-gray-500 block mb-1">2 Weeks Ago</span>
+                                    <h4 class="font-bold text-primary group-hover:text-csusb-blue transition">Patience in the Waiting</h4>
+                                    <p class="text-sm text-gray-600 mt-1 line-clamp-2">When bureaucracy slows us down, how do we maintain our spiritual joy?</p>
+                                </a>
+                            </li>
+                            <li class="group">
+                                <a href="#" class="block">
+                                    <span class="text-xs text-gray-500 block mb-1">3 Weeks Ago</span>
+                                    <h4 class="font-bold text-primary group-hover:text-csusb-blue transition">Gratitude for the Harvest</h4>
+                                    <p class="text-sm text-gray-600 mt-1 line-clamp-2">A look at Psalm 67 and the blessings of experiencing a new culture.</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-gray-100 text-center">
+                            <a href="#" class="text-sm font-bold text-secondary hover:underline">View All Pearls &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 7. FOOTER -->
+    <footer class="bg-csusb-dark text-gray-400 py-12 border-t-4 border-csusb-blue">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Brand / Address -->
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-xl font-bold font-serif mb-4">THE MEXICO BRIEF</h3>
+                    <p class="text-sm mb-4">
+                        Mexico City, Mexico<br>
+                        Contact: info@mexicobrief.mx
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Facebook</span>F</a>
+                        <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Twitter</span>T</a>
+                        <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Instagram</span>I</a>
+                    </div>
+                </div>
+
+                <!-- Footer Links 1 -->
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white hover:underline">Visa Guide</a></li>
+                        <li><a href="#" class="hover:text-white hover:underline">Safety Reports</a></li>
+                        <li><a href="#" class="hover:text-white hover:underline">Cost of Living</a></li>
+                        <li><a href="#" class="hover:text-white hover:underline">City Guides</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Links 2 -->
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Community</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white hover:underline">Events Calendar</a></li>
+                        <li><a href="#" class="hover:text-white hover:underline">Submit a Tip</a></li>
+                        <li><a href="#" class="hover:text-white hover:underline">Donations</a></li>
+                    </ul>
+                </div>
+
+                 <!-- Footer Links 3 -->
+                 <div>
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white hover:underline">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white hover:underline">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white hover:underline">Cookie Settings</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>&copy; 2025 The Mexico Brief. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Designed for Nomads in Mexico.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
